@@ -13,6 +13,7 @@
 專案發想自 [MTR04-餐廳官網練習作業](https://github.com/Lidemy/mentor-program-4th-awuuu0716/tree/master/homeworks/week6)，在學習到 React 與後端 Node.js 後我決定試著從零開始打造一個前後端分離的 SPA 網站，讓使用者擁有像是 APP 般的使用體驗，輕鬆了解一家餐廳，並且能夠直接在網頁上訂位，無需浪費寶貴的電話費~
 
 # Features - 專案功能
+BASE_URL = 'https://ancient-sea-54746.herokuapp.com';
 商品相關 API：
 1. GET /products/:type，取得商品資料，接收 type 參數獲取特定種類餐點
 2. POST /products，新增商品
