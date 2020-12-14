@@ -14,6 +14,8 @@
 
 # Features - 專案功能
 BASE_URL = 'https://ancient-sea-54746.herokuapp.com';
+
+
 商品相關 API：
 1. GET /products/:type，取得商品資料，接收 type 參數獲取特定種類餐點
 2. POST /products，新增商品
@@ -37,10 +39,12 @@ BASE_URL = 'https://ancient-sea-54746.herokuapp.com';
 3. axios - 串接第三方 API
 4. mysql - 儲存菜單、會員、訂位的資料
 5. sequelize - 利用 ORM 以操作 JavaScript 物件的方式操作資料庫
-6. bcrypt - 密碼的 hash 與驗證
-7. jsonwebtoken - 使用者身分驗證
-8. multer - 解析前端傳來的圖片資料
-9. body-parser - 解析前端傳來的 body 資訊
+6. sequelize-cli - 使用 CLI 快速建立 models
+7. bcrypt - 密碼的 hash 與驗證
+8. jsonwebtoken - 使用者身分驗證
+9. multer - 解析前端傳來的圖片資料
+10. body-parser - 解析前端傳來的 body 資訊
+11. Heroku - 快速部署上線，雖然速度有時有點慢
 
 # Declaration - 聲明
 本作品內圖片、內容等，純粹為個人練習前端使用，不做任何商業用途。
