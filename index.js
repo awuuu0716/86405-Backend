@@ -5,7 +5,6 @@ const reservesController = require('./controllers/reserves');
 const usersController = require('./controllers/users');
 const app = express();
 const port = process.env.PORT || 4000;
-const secret = process.env.SECRET || 'test';
 const multer = require('multer');
 const upload = multer();
 
