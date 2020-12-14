@@ -47,7 +47,7 @@ BASE_URL : https://ancient-sea-54746.herokuapp.com
 11. Heroku - 快速部署上線，雖然速度有時有點慢
 
 # Declaration - 聲明
-本作品內圖片、內容等，純粹為個人練習前端使用，不做任何商業用途。
+本作品內圖片、內容等，純粹為個人練習後端使用，不做任何商業用途。
 
 # Installing - 專案安裝流程
 1. clone this repository
