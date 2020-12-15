@@ -59,6 +59,19 @@ const reservesController = {
       res.json(product);
     });
   },
+  checkReserveAvaible: (req, res, next) => {
+    const { date, entryTime } = req.body;
+    Reserves.findAll({
+      where: {
+        date,
+        entryTime,
+      },
+    }).then((resrves) => {
+      if (resrves.length === 0 || resrves.every((element) => element.isDelete))
+        return next();
+      res.json({ ok: 0, message: '此時間已被預約' });
+    });
+  },
 };
 
 module.exports = reservesController;

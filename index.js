@@ -7,6 +7,7 @@ const app = express();
 const port = process.env.PORT || 4000;
 const multer = require('multer');
 const upload = multer();
+const { auth } = require('./utils');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -28,18 +29,29 @@ app.post('/login', usersController.login);
 app.get('/me', usersController.getMe);
 
 // reserve CRUD
-app.post('/reserve', reservesController.addReserve);
 app.get('/reserve/:date', reservesController.getReserve);
-app.get('/reserve/user/:username', reservesController.getUserReserve);
-app.delete('/reserve/:id', reservesController.deleteReserve);
+app.get('/reserve/user/:username', auth, reservesController.getUserReserve);
+app.post(
+  '/reserve',
+  auth,
+  reservesController.checkReserveAvaible,
+  reservesController.addReserve
+);
+app.delete('/reserve/:id', auth, reservesController.deleteReserve);
 
 // menu CRUD
 app.get('/products/:type', productsController.getProducts);
-app.post('/products', upload.single('file'), productsController.addProduct);
-app.delete('/products/:id', productsController.deleteProduct);
-app.put('/products/:id', productsController.updateProduct);
+app.post(
+  '/products',
+  auth,
+  upload.single('file'),
+  productsController.addProduct
+);
+app.delete('/products/:id', auth, productsController.deleteProduct);
+app.put('/products/:id', auth, productsController.updateProduct);
 app.put(
   '/products/reupload/:id',
+  auth,
   upload.single('file'),
   productsController.updateProductNewImg
 );

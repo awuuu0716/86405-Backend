@@ -1,11 +1,15 @@
-const getAuth = () => {
-  let result = '';
-  for (let i = 0; i < 20; i++) {
-    if (i % 2 === 0) {
-      result += String.fromCharCode(65 + Math.floor(Math.random() * 26));
-    } else {
-      result += String.fromCharCode(48 + Math.floor(Math.random() * 10));
-    }
-  }
-  return result;
+const fs = require('fs');
+const jwt = require('jsonwebtoken');
+const cert = fs.readFileSync('public.pem');
+
+const utils = {
+  auth: (req, res, next) => {
+    const token = req.header('Authorization').replace('Bearer ', '');
+    jwt.verify(token, cert, (err, decoded) => {
+      if (err) return res.json({ ok: 0, message: '使用者驗證錯誤' });
+      next();
+    });
+  },
 };
+
+module.exports = utils;
